@@ -14,10 +14,10 @@ def process_file(source: Path, target: str) -> None:
     year = strftime("%Y", localtime(earliest))
     date = strftime("%d-%m", localtime(earliest))
     if date == target:
-        if not exists(f"OnThisDayIn{year}"):
-            mkdir(f"OnThisDayIn{year}")
+        if not exists(f"OnThisDay-{date}-{year}"):
+            mkdir(f"OnThisDay-{date}-{year}")
         try:
-            copy(source, rf"OnThisDayIn{year}\{filename}")
+            copy(source, rf"OnThisDay-{date}-{year}\{filename}")
         except:
             pass
 
